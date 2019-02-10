@@ -8907,7 +8907,7 @@ public abstract class Flux<T> implements Publisher<T> {
 	 * subsequent elements that all passed a predicate.
 	 */
 	public final Flux<Flux<T>> windowWhile(Predicate<T> inclusionPredicate, int prefetch) {
-		return onAssembly(new FluxWindowPredicate<>(this,
+		return onAssembly(new FluxWindowWhilePredicate<>(this,
 				Queues.unbounded(prefetch),
 				Queues.unbounded(prefetch),
 				prefetch,
